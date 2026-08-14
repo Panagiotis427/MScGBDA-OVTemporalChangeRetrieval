@@ -319,7 +319,7 @@ editing the shared pipeline: the abstraction is enforced by the protocol, and th
 full source is in the linked repository.
 
 \paragraph{Encoders.}
-An \texttt{ImageTextEncoder} protocol (\texttt{src/encoders/base.py}) has three
+An \texttt{ImageTextEncoder} protocol has three
 implementations: \texttt{clip\_vitl14} (HuggingFace CLIP~\cite{clip} on a
 ViT~\cite{vit} backbone, 768-d), \texttt{georsclip}
 (\texttt{open\_clip}~\cite{openclip} ViT-B/32 + RS5M checkpoint~\cite{georsclip},
@@ -391,7 +391,7 @@ match score used for display only.
 
 \paragraph{Change-feature mode.}
 The adapter consumes a change feature built from the pair embeddings, in one of
-two modes (\texttt{src/features.py}): \texttt{difference}
+two modes: \texttt{difference}
 ($\Delta f = f_{T_2} - f_{T_1}$, dimension $D$) or \texttt{concatenate}
 ($[f_{T_1} ; f_{T_2}]$, dimension $2D$, which keeps both endpoints). Unless
 otherwise stated all results use \texttt{difference}; the two modes are compared
@@ -499,7 +499,7 @@ bi-temporal building-change pairs ($256\times256$, 0.5\,m), each with five
 human-written change captions and a binary change flag (5{,}038 changed /
 5{,}039 unchanged). The captions are parsed into open-vocabulary change tags
 (building, road, demolition, vegetation, water) so that free-text queries map
-directly to caption-grounded relevance (\texttt{src/datasets/levir\_cc.py}),
+directly to caption-grounded relevance,
 testing the engine on salient, well-described change in genuine human language
 and complementing DEN's subtle spectral transitions and QFabric's categorical
 types.
@@ -507,8 +507,8 @@ types.
 \paragraph{LEVIR-MCI (localisation masks on the LEVIR pairs).}
 LEVIR-MCI~\cite{levirmci} is a strict superset of LEVIR-CC - the same 10{,}077
 pairs and captions, plus a pixel-level building/road change mask per pair. It is
-stored once and serves both \texttt{levir\_cc} and \texttt{levir\_mci}
-(\texttt{src/datasets/levir\_mci.py}); the masks make the change-heatmap
+stored once and serves both \texttt{levir\_cc} and \texttt{levir\_mci};
+the masks make the change-heatmap
 deliverable quantitatively measurable (Section~\ref{sec:localization}).
 
 \paragraph{SECOND-CC (open-vocabulary breadth + semantic masks).}
@@ -519,7 +519,7 @@ breadth counterpart to LEVIR-CC, whose change is almost entirely building/road:
 SECOND-CC's captions span a far wider land-cover vocabulary, and its per-phase
 semantic maps give both retrieval relevance (caption tags) and localisation
 ground truth (per-class and directed-transition change masks), through the same
-protocol (\texttt{src/datasets/second\_cc.py}).
+protocol.
 
 \paragraph{Encoders.}
 Table~\ref{tab:encoders} lists the three frozen CLIP-variant encoders. All
@@ -599,7 +599,7 @@ encoders, synthetic fixture, no network) passes; the full suite additionally run
 the real-CLIP text-encoder test (skipped unless its weights are present) and covers
 the embeddings cache and round-trip, retrieval
 (naive/zero\_shot/peft), benchmark metrics, PEFT training (loss decreases,
-save/load), the encoder protocol/registry, and the app's \texttt{query()} path
+save/load), the encoder protocol/registry, and the app's query path
 (real fixture tiles + heatmap + seasonal note). We report the cross-validated DEN
 result first (Section~\ref{sec:denmain}), since it is the generalisation verdict,
 then the evidence that learned adapters memorise (Section~\ref{sec:memorisation}),
@@ -963,7 +963,7 @@ counts it as drift if mis-retrieved.
 The dominant real error is not seasonal confusion but low recall from class
 imbalance and weak label-derived captions (many near-stable bimonthly pairs;
 agri$\leftrightarrow$wetland visually subtle). The per-query confusion analysis
-(\texttt{src/error\_analysis.py}) makes this concrete: on the best test
+makes this concrete: on the best test
 configuration (GeoRSCLIP + NRG), the wetland queries' top-10 are dominated by
 \texttt{stable} pairs (6--7 of 10), so the failure mode is surfacing no-change
 pairs (Figure~\ref{fig:confusion}).
@@ -1006,8 +1006,8 @@ global embeddings, the gate fires when
 $\Delta = \cos(t, f_{T_2}) - \cos(t, f_{T_1}) > \tau$. On a stable pair
 $f_{T_1} \approx f_{T_2}$, so $\Delta \approx 0$ for any query and every firing is
 a false positive; sweeping $\tau$ over the stable subset (DEN's own
-\texttt{PairLabel.stable} flag) yields a false-positive-rate curve
-(\texttt{src/seasonal\_gate.py}). Table~\ref{tab:seasonalgate} reports the curve
+\texttt{PairLabel.stable} flag) yields a false-positive-rate
+curve. Table~\ref{tab:seasonalgate} reports the curve
 for the strongest configuration (GeoRSCLIP, RGB, test split, 24 stable pairs).
 
 \begin{table}[H]
