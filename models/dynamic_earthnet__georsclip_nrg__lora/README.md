@@ -14,8 +14,8 @@ license: mit
 A LoRA adapter on the **GeoRSCLIP** visual encoder for bi-temporal, open-vocabulary change
 retrieval on **Dynamic EarthNet** in NRG (near-infrared / red / green) colour mode. Part of the
 GBDA lab project — full code and methodology in the
-[repository](https://github.com/Panagiotis427/MSc_GBDA-OV_Temporal_Change_Retrieval) and its
-[technical report](https://github.com/Panagiotis427/MSc_GBDA-OV_Temporal_Change_Retrieval/blob/main/report/main.pdf).
+[repository](https://github.com/Panagiotis427/MScGBDA-OVTemporalChangeRetrieval) and its
+[technical report](https://github.com/Panagiotis427/MScGBDA-OVTemporalChangeRetrieval/blob/main/report/main.pdf).
 
 ## Honest summary — a negative result
 
@@ -40,7 +40,7 @@ for deployment.
 
 Not a standalone model — load it through the repository:
 `python -m scripts.run_pipeline … --lora`, or toggle **LoRA** in the app's Settings panel. See the
-[repository README](https://github.com/Panagiotis427/MSc_GBDA-OV_Temporal_Change_Retrieval).
+[repository README](https://github.com/Panagiotis427/MScGBDA-OVTemporalChangeRetrieval).
 
 ## License
 

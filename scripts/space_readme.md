@@ -30,5 +30,5 @@ the honest accuracy limits.
 
 ## Full project
 
-- **Code, methodology, and reproducible pipeline** — [GitHub repository](https://github.com/Panagiotis427/MSc_GBDA-OV_Temporal_Change_Retrieval)
-- **Technical report (PDF)** — [`report/main.pdf`](https://github.com/Panagiotis427/MSc_GBDA-OV_Temporal_Change_Retrieval/blob/main/report/main.pdf)
+- **Code, methodology, and reproducible pipeline** — [GitHub repository](https://github.com/Panagiotis427/MScGBDA-OVTemporalChangeRetrieval)
+- **Technical report (PDF)** — [`report/main.pdf`](https://github.com/Panagiotis427/MScGBDA-OVTemporalChangeRetrieval/blob/main/report/main.pdf)
