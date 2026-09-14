@@ -190,7 +190,7 @@ in [Datasets & model resources](#datasets--model-resources) below.
 ### 1. Setup (one-time)
 
 ```bash
-git clone https://github.com/Panagiotis427/MScGBDA-OVTemporalChangeRetrieval.git && cd MScGBDA-OVTemporalChangeRetrieval
+git clone https://github.com/Panagiotis427/msc-gbda-ov-temporal-change-retrieval.git && cd msc-gbda-ov-temporal-change-retrieval
 
 python -m venv .venv
 source .venv/bin/activate          # Windows (PowerShell): .venv\Scripts\Activate.ps1
